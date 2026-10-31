@@ -1,0 +1,48 @@
+<svg viewBox="30 20 570 590" width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgAura" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#082f49" stop-opacity="0.7"/>
+      <stop offset="60%" stop-color="#020617" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="1"/>
+    </radialGradient>
+    <filter id="neonGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="30" y="20" width="570" height="590" fill="url(#bgAura)"/>
+
+  <!-- Soft Electric Glow Layer -->
+  <g stroke="#0284c7" stroke-width="6" fill="none" stroke-linejoin="round" stroke-linecap="round" opacity="0.55" filter="url(#neonGlow)">
+    <path d="M 247,103 C 204,108 143,104 107,137 C 118,125 153,123 271,148 L 300,163 Z" />
+    <path d="M 244.0,358.0 C 172.1,418.6 98.3,492.5 80.0,589.0 C 109.0,502.3 199.0,457.0 270.0,409.0 Z" /><path d="M 545.0,252.0 C 493.6,376.0 421.8,493.3 325.0,587.0 C 427.1,499.6 525.4,390.7 545.0,252.0 Z" /><path d="M 247.0,103.0 C 206.8,64.2 117.7,74.1 107.0,137.0 C 129.9,73.6 201.1,123.7 247.0,103.0 Z" />
+    <path d="M 363,374 L 337,398 L 384,518 Z" /><path d="M 401,310 L 384,354 L 421,407 Z" /><path d="M 271,300 L 250,355 L 280,403 L 332,380 Z" /><path d="M 417,255 L 403,303 L 474,339 L 451,283 Z" /><path d="M 284,242 L 280,281 L 330,370 L 308,283 Z" /><path d="M 483,231 L 523,261 L 546,238 Z" /><path d="M 359,228 L 366,356 L 391,287 Z" /><path d="M 457,227 L 454,260 L 509,269 Z" /><path d="M 394,188 L 378,221 L 436,253 Z" /><path d="M 403,181 L 451,215 L 490,214 Z" /><path d="M 434,172 L 553,218 L 547,206 L 480,167 Z" /><path d="M 281,147 L 360,208 L 311,149 Z" /><path d="M 170,128 L 208,149 L 278,234 L 291,232 L 290,239 L 339,318 L 315,241 L 301,226 L 293,230 L 287,211 L 242,174 L 245,167 L 278,156 Z" /><path d="M 392,133 L 540,163 L 449,123 Z" /><path d="M 385,107 L 335,133 L 256,109 L 265,135 L 297,131 L 341,137 Z" /><path d="M 365,95 L 388,105 L 511,110 L 427,81 Z" /><path d="M 227,56 L 191,78 L 225,77 Z" /><path d="M 364,79 L 340,50 L 261,100 L 316,77 Z" /><path d="M 388,47 L 477,73 Z" /><path d="M 269,45 L 230,55 L 251,96 Z" />
+  </g>
+
+  <!-- Bright Core Neon Cyan/Blue Wireframe -->
+  <g stroke="#38bdf8" stroke-width="3.4" fill="none" stroke-linejoin="round" stroke-linecap="round" filter="url(#neonGlow)">
+    <!-- Hooked Beak -->
+    <path d="M 247,103 C 204,108 143,104 107,137 C 118,125 153,123 271,148 L 300,163 Z" />
+    
+    <!-- Sweeping & Crescent Feathers -->
+    <path d="M 244.0,358.0 C 172.1,418.6 98.3,492.5 80.0,589.0 C 109.0,502.3 199.0,457.0 270.0,409.0 Z" /><path d="M 545.0,252.0 C 493.6,376.0 421.8,493.3 325.0,587.0 C 427.1,499.6 525.4,390.7 545.0,252.0 Z" /><path d="M 247.0,103.0 C 206.8,64.2 117.7,74.1 107.0,137.0 C 129.9,73.6 201.1,123.7 247.0,103.0 Z" />
+    
+    <!-- Geometric Facets -->
+    <path d="M 363,374 L 337,398 L 384,518 Z" /><path d="M 401,310 L 384,354 L 421,407 Z" /><path d="M 271,300 L 250,355 L 280,403 L 332,380 Z" /><path d="M 417,255 L 403,303 L 474,339 L 451,283 Z" /><path d="M 284,242 L 280,281 L 330,370 L 308,283 Z" /><path d="M 483,231 L 523,261 L 546,238 Z" /><path d="M 359,228 L 366,356 L 391,287 Z" /><path d="M 457,227 L 454,260 L 509,269 Z" /><path d="M 394,188 L 378,221 L 436,253 Z" /><path d="M 403,181 L 451,215 L 490,214 Z" /><path d="M 434,172 L 553,218 L 547,206 L 480,167 Z" /><path d="M 281,147 L 360,208 L 311,149 Z" /><path d="M 170,128 L 208,149 L 278,234 L 291,232 L 290,239 L 339,318 L 315,241 L 301,226 L 293,230 L 287,211 L 242,174 L 245,167 L 278,156 Z" /><path d="M 392,133 L 540,163 L 449,123 Z" /><path d="M 385,107 L 335,133 L 256,109 L 265,135 L 297,131 L 341,137 Z" /><path d="M 365,95 L 388,105 L 511,110 L 427,81 Z" /><path d="M 227,56 L 191,78 L 225,77 Z" /><path d="M 364,79 L 340,50 L 261,100 L 316,77 Z" /><path d="M 388,47 L 477,73 Z" /><path d="M 269,45 L 230,55 L 251,96 Z" />
+  </g>
+
+  <!-- Predatory Glowing Eye -->
+  <g filter="url(#neonGlow)">
+    <!-- Sclera with electric glow -->
+    <path d="M 363,99 L 348,90 L 320,96 L 303,111 L 319,122 L 338,123 L 352,117 Z" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2" />
+    <!-- Pupil -->
+    <ellipse cx="334" cy="110" rx="9" ry="8" fill="#020617" stroke="#0284c7" stroke-width="1.2" />
+    <!-- Eye Highlight / Reflection -->
+    <path d="M 326,105 Q 334,101 341,105 Q 334,103 326,105 Z" fill="#ffffff" stroke="none" />
+  </g>
+</svg>

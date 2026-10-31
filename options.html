@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepHighlight</title>
+  <link rel="stylesheet" type="text/css" href="options.css">
+</head>
+<body>
+  <div class="studio-shell">
+    <!-- Top Studio Bar -->
+    <header class="studio-nav">
+      <div class="brand-group">
+        <div class="brand-mark">
+          <svg width="20" height="20" viewBox="30 20 570 590" fill="none" stroke="#38bdf8" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 247,103 C 204,108 143,104 107,137 C 118,125 153,123 271,148 L 300,163 Z" />
+            <path d="M 244.0,358.0 C 172.1,418.6 98.3,492.5 80.0,589.0 C 109.0,502.3 199.0,457.0 270.0,409.0 Z M 545.0,252.0 C 493.6,376.0 421.8,493.3 325.0,587.0 C 427.1,499.6 525.4,390.7 545.0,252.0 Z M 247.0,103.0 C 206.8,64.2 117.7,74.1 107.0,137.0 C 129.9,73.6 201.1,123.7 247.0,103.0 Z" />
+            <path d="M 363,374 L 337,398 L 384,518 Z M 401,310 L 384,354 L 421,407 Z M 271,300 L 250,355 L 280,403 L 332,380 Z M 417,255 L 403,303 L 474,339 L 451,283 Z M 284,242 L 280,281 L 330,370 L 308,283 Z M 483,231 L 523,261 L 546,238 Z M 359,228 L 366,356 L 391,287 Z M 457,227 L 454,260 L 509,269 Z M 394,188 L 378,221 L 436,253 Z M 403,181 L 451,215 L 490,214 Z M 434,172 L 553,218 L 547,206 L 480,167 Z M 281,147 L 360,208 L 311,149 Z M 170,128 L 208,149 L 278,234 L 291,232 L 290,239 L 339,318 L 315,241 L 301,226 L 293,230 L 287,211 L 242,174 L 245,167 L 278,156 Z M 392,133 L 540,163 L 449,123 Z M 385,107 L 335,133 L 256,109 L 265,135 L 297,131 L 341,137 Z M 365,95 L 388,105 L 511,110 L 427,81 Z M 227,56 L 191,78 L 225,77 Z M 364,79 L 340,50 L 261,100 L 316,77 Z M 388,47 L 477,73 Z M 269,45 L 230,55 L 251,96 Z" />
+            <path d="M 363,99 L 348,90 L 320,96 L 303,111 L 319,122 L 338,123 L 352,117 Z" fill="#38bdf8" stroke="none" />
+            <ellipse cx="334" cy="110" rx="12" ry="10" fill="#000000" stroke="none" />
+          </svg>
+        </div>
+        <span class="brand-title">DeepHighlight pro</span>
+        <span class="brand-tag">STUDIO v2.0</span>
+      </div>
+
+      <div class="nav-actions">
+        <span id="status-msg" class="sync-pill">● READY</span>
+        <button id="reset-btn" class="ghost-btn">Reset</button>
+        <button id="save-btn" class="studio-cta-btn">Save</button>
+      </div>
+    </header>
+
+    <!-- Hero + Live Interactive Canvas Preview -->
+    <section class="hero-section">
+      <div class="hero-copy">
+        <div class="section-index">00 / WORKSPACE</div>
+        <h1>Precision crosshair control for Google Sheets.</h1>
+        <p>Zero document mutation. Pure transparent selection window with instant multi-row and multi-column tracking.</p>
+
+        <div class="quick-stats">
+          <div class="stat-chip">
+            <span class="stat-label">ENGINE</span>
+            <span class="stat-val" id="preview-mode-label">BOTH</span>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-label">STYLE</span>
+            <span class="stat-val" id="preview-style-label">FILL</span>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-label">SELECTION</span>
+            <span class="stat-val">100% CLEAR</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Live Spreadsheet Preview -->
+      <div class="preview-card">
+        <div class="preview-header">
+          <span class="preview-dots"><i></i><i></i><i></i></span>
+          <span class="preview-title">LIVE INTERACTIVE PREVIEW — CLICK OR DRAG CELLS</span>
+          <span class="preview-range-pill" id="preview-range-text">C3:D4</span>
+        </div>
+        <div class="preview-grid-wrapper" id="preview-grid">
+          <!-- Populated dynamically by options.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento Grid Controls -->
+    <main class="bento-grid">
+      <!-- 01 / MODE & STYLE -->
+      <section class="bento-card">
+        <div class="card-top">
+          <span class="section-index">01 / MODE &amp; STYLE</span>
+          <label class="studio-switch" title="Master Enable">
+            <input type="checkbox" id="opt-enabled">
+            <span class="switch-slider"></span>
+          </label>
+        </div>
+        <h3>Crosshair Geometry</h3>
+        <p class="card-sub">Choose axis tracking and rendering mode.</p>
+
+        <div class="field-label">MODE</div>
+        <div class="seg-grid seg-4" id="mode-cards">
+          <button type="button" class="seg-btn" data-mode="row_column">Both</button>
+          <button type="button" class="seg-btn" data-mode="row">Row</button>
+          <button type="button" class="seg-btn" data-mode="column">Column</button>
+          <button type="button" class="seg-btn" data-mode="none">Off</button>
+        </div>
+        <select id="opt-mode" style="display:none;">
+          <option value="row_column">Both</option>
+          <option value="row">Row</option>
+          <option value="column">Column</option>
+          <option value="none">Off</option>
+        </select>
+
+        <div class="field-label" style="margin-top:16px;">STYLE</div>
+        <div class="seg-grid seg-3" id="style-cards">
+          <button type="button" class="seg-btn" data-style="fill">Fill</button>
+          <button type="button" class="seg-btn" data-style="border">Border</button>
+          <button type="button" class="seg-btn" data-style="spotlight">Focus</button>
+        </div>
+        <select id="opt-style-mode" style="display:none;">
+          <option value="fill">Fill</option>
+          <option value="border">Border</option>
+          <option value="spotlight">Focus</option>
+        </select>
+
+        <div class="dual-select-row" style="margin-top:16px;">
+          <div>
+            <div class="field-label">THICKNESS</div>
+            <select id="opt-border-width" class="studio-select">
+              <option value="1">1 px</option>
+              <option value="2">2 px</option>
+              <option value="3">3 px</option>
+              <option value="4">4 px</option>
+            </select>
+          </div>
+          <div>
+            <div class="field-label">PATTERN</div>
+            <select id="opt-border-style" class="studio-select">
+              <option value="solid">Solid</option>
+              <option value="dashed">Dashed</option>
+              <option value="dotted">Dotted</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 / PALETTE & OPACITY -->
+      <section class="bento-card">
+        <div class="card-top">
+          <span class="section-index">02 / PALETTE</span>
+          <span class="mono-badge" id="opacity-readout">25%</span>
+        </div>
+        <h3>Color &amp; Opacity</h3>
+        <p class="card-sub">Curated studio swatches or custom dual-axis colors.</p>
+
+        <div class="field-label">PRESETS</div>
+        <div class="swatch-row">
+          <button type="button" class="swatch-btn" data-color="#4285F4" style="background:#4285F4" title="Blue"></button>
+          <button type="button" class="swatch-btn" data-color="#10B981" style="background:#10B981" title="Emerald"></button>
+          <button type="button" class="swatch-btn" data-color="#F59E0B" style="background:#F59E0B" title="Amber"></button>
+          <button type="button" class="swatch-btn" data-color="#EF4444" style="background:#EF4444" title="Ruby"></button>
+          <button type="button" class="swatch-btn" data-color="#6366F1" style="background:#6366F1" title="Indigo"></button>
+          <button type="button" class="swatch-btn" data-color="#EC4899" style="background:#EC4899" title="Rose"></button>
+          <button type="button" class="swatch-btn" data-color="#14B8A6" style="background:#14B8A6" title="Teal"></button>
+          <button type="button" class="swatch-btn" data-color="#64748B" style="background:#64748B" title="Slate"></button>
+        </div>
+
+        <div class="color-pickers-grid">
+          <div class="color-box">
+            <span class="field-label">ROW / PRIMARY</span>
+            <div class="color-input-wrap">
+              <input type="color" id="opt-color" value="#4285F4">
+              <span id="row-hex-label">#4285F4</span>
+            </div>
+          </div>
+          <div class="color-box">
+            <span class="field-label">COLUMN</span>
+            <div class="color-input-wrap">
+              <input type="color" id="opt-col-color" value="#10B981">
+              <span id="col-hex-label">#10B981</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="option-line" style="margin-top:14px;">
+          <span>Dual Axis Colors</span>
+          <label class="studio-switch">
+            <input type="checkbox" id="opt-separate-colors">
+            <span class="switch-slider"></span>
+          </label>
+        </div>
+
+        <div class="field-label" style="margin-top:14px;">OPACITY</div>
+        <input type="range" id="opt-opacity" class="studio-range" min="0.05" max="0.75" step="0.05" value="0.25">
+      </section>
+
+      <!-- 03 / PRECISION ENGINE -->
+      <section class="bento-card">
+        <div class="card-top">
+          <span class="section-index">03 / ENGINE</span>
+          <span class="mono-badge">ZERO-TINT</span>
+        </div>
+        <h3>Selection &amp; Behavior</h3>
+        <p class="card-sub">Keep selected cells crystal clear with zero bluish tint.</p>
+
+        <div class="toggle-stack">
+          <div class="option-line">
+            <div>
+              <strong>Clear Selection</strong>
+              <small>Remove all tint inside selected cells</small>
+            </div>
+            <label class="studio-switch">
+              <input type="checkbox" id="opt-transparent-cell">
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <div class="option-line">
+            <div>
+              <strong>Selection Frame</strong>
+              <small>Crisp outline around selected block</small>
+            </div>
+            <label class="studio-switch">
+              <input type="checkbox" id="opt-selection-frame">
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <div class="option-line">
+            <div>
+              <strong>Auto-Hide on Typing</strong>
+              <small>Pause overlay while editing formulas</small>
+            </div>
+            <label class="studio-switch">
+              <input type="checkbox" id="opt-pause-typing">
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <div class="option-line">
+            <div>
+              <strong>Range Badge</strong>
+              <small>Minimal 1-word coordinate pill</small>
+            </div>
+            <label class="studio-switch">
+              <input type="checkbox" id="opt-range-badge">
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 / SHORTCUTS -->
+      <section class="bento-card">
+        <div class="card-top">
+          <span class="section-index">04 / SHORTCUTS</span>
+          <label class="studio-switch">
+            <input type="checkbox" id="opt-shortcuts">
+            <span class="switch-slider"></span>
+          </label>
+        </div>
+        <h3>Instant Hotkeys</h3>
+        <p class="card-sub">Control the studio engine without leaving the keyboard.</p>
+
+        <div class="shortcut-list">
+          <div class="shortcut-item">
+            <span>Toggle On / Off</span>
+            <div class="keys"><kbd>Alt</kbd><span>+</span><kbd>H</kbd></div>
+          </div>
+          <div class="shortcut-item">
+            <span>Cycle Mode</span>
+            <div class="keys"><kbd>Alt</kbd><span>+</span><kbd>M</kbd></div>
+          </div>
+          <div class="shortcut-item">
+            <span>Cycle Style</span>
+            <div class="keys"><kbd>Alt</kbd><span>+</span><kbd>S</kbd></div>
+          </div>
+          <div class="shortcut-item">
+            <span>Pin Reference</span>
+            <div class="keys"><kbd>Alt</kbd><span>+</span><kbd>P</kbd></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="studio-footer">
+      <span>DEEPHIGHLIGHT PRO STUDIO</span>
+      <span>NON-DESTRUCTIVE CANVAS ENGINE</span>
+    </footer>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
